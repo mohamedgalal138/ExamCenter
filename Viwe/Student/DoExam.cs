@@ -18,19 +18,17 @@ namespace ExamCenter.Pages.Student
 
         public exam exam;
 
-        DoExamLogic logic;
-
-        //public List<student_answer> students = new List<student_answer>();
+        DoExamLogic logic = new();
 
         int Secounds = 60;
 
         int mints;
+
         public ExamForm examForm;
         public DoExam(exam _exam)
         {
             InitializeComponent();
             this.exam = _exam;
-            logic = new DoExamLogic(exam);
             examForm = new ExamForm(exam);
             label1.Text = Secounds.ToString();
             mints = exam.Duration - 1;
@@ -58,7 +56,6 @@ namespace ExamCenter.Pages.Student
 
         public void loadExamCourse(int courseexamid)
         {
-            
             label4.Text += logic.GetCourse(courseexamid)?.Course_Name.ToString() ?? "No Courses found.";
         }
 

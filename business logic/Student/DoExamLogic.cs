@@ -11,18 +11,7 @@ namespace ExamCenter.business_logic.Student
 {
     public class DoExamLogic
     {
-        public student_answer? _student_Answer;
-
-        public student_exam? _student_Exam;
-
         Context _context = new();
-
-        exam exam;
-
-        public DoExamLogic(exam exam) 
-        {
-            this.exam = exam;
-        }
 
         public course? GetCourse(int courseexamid) 
         {
@@ -42,24 +31,6 @@ namespace ExamCenter.business_logic.Student
                     Student_Std_ID = 1,
                     Student_Answer = item.StudentAnswerString,
                 });
-                //foreach (var answ in answers)
-                //{
-                //    foreach (var answer in answers1)
-                //    {
-                //        _student_Answer = new();
-                //        if (answer.Checked == true)
-                //        {
-                //            _student_Answer.Student_Std_ID = 1;
-                //            _student_Answer.Question_Que_ID = item.Que_ID;
-                //            _student_Answer.Student_Answer = answer.Text;
-                //            _context.Student_answers.Add(_student_Answer);
-
-                //        }
-
-                //    }
-                //}
-
-
             }
             _context.SaveChanges();
         }
