@@ -15,6 +15,8 @@ namespace ExamCenter.Models
             answers = new HashSet<answer>();
             Student_Answer = new HashSet<student_answer>();
         }
+        [NotMapped]
+        public string StudentAnswerString { get; set; }
 
         [Key]
         public int Que_ID { get; set; }

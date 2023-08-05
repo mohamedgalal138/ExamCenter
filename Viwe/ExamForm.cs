@@ -180,7 +180,7 @@ namespace ExamCenter.Pages
                       {
                         Left = 30,
                         Size = new Size(17, 15),
-                        Name = "MCQAnswer",
+                        Name = Quest.Que_ID.ToString(),
                         Font = new Font("Segoe UI ", 12),
                         AutoSize = true
                       };

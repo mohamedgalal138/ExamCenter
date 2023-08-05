@@ -71,8 +71,6 @@
             label5.Size = new Size(47, 37);
             label5.TabIndex = 27;
             label5.Text = "00";
-            label5.TextChanged += label5_TextChanged;
-            label5.Click += label5_Click;
             // 
             // button1
             // 

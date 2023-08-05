@@ -1,4 +1,5 @@
-﻿using ExamCenter.Data;
+﻿using ExamCenter.business_logic.Student;
+using ExamCenter.Data;
 using ExamCenter.Models;
 using System;
 using System.Collections.Generic;
@@ -15,25 +16,21 @@ namespace ExamCenter.Pages.Student
     public partial class DoExam : Form
     {
 
-        public exam exam = new();
+        public exam exam;
+
+        DoExamLogic logic;
 
         //public List<student_answer> students = new List<student_answer>();
-
-        public student_answer _student_Answer;
-
-        public student_exam _student_Exam;
-
-        Context _context = new();
 
         int Secounds = 60;
 
         int mints;
-
         public ExamForm examForm;
         public DoExam(exam _exam)
         {
             InitializeComponent();
             this.exam = _exam;
+            logic = new DoExamLogic(exam);
             examForm = new ExamForm(exam);
             label1.Text = Secounds.ToString();
             mints = exam.Duration - 1;
@@ -61,8 +58,8 @@ namespace ExamCenter.Pages.Student
 
         public void loadExamCourse(int courseexamid)
         {
-            var course = _context.Courses.Where(c => c.course_ID == courseexamid).FirstOrDefault();
-            label4.Text += course.Course_Name.ToString();
+            
+            label4.Text += logic.GetCourse(courseexamid)?.Course_Name.ToString() ?? "No Courses found.";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -74,50 +71,13 @@ namespace ExamCenter.Pages.Student
 
         private  void button2_Click(object sender, EventArgs e)
         {
+            var x = examForm.AnswersRadioButton.Where(a => a.Checked == true).ToList();
 
-            var questions = examForm.questions;
-            MessageBox.Show("count =" + questions.Count);
+            examForm.questions.ForEach(a => {
+                a.StudentAnswerString = x.Where(b => b.Name == a.Que_ID.ToString()).First().Text;
+            });
 
-            foreach (var item in questions)
-            {
-                
-                var answers = _context.Answers.Where(a => a.Question_ID == item.Que_ID).ToList();
-
-                foreach(var answ in answers)
-                {
-                    var answers1 = examForm.AnswersRadioButton;
-                    foreach (var answer in answers1)
-                    {
-                        _student_Answer = new();
-                        if (answer.Checked == true)
-                        {
-                            _student_Answer.Student_Std_ID = 1;
-                            _student_Answer.Question_Que_ID = item.Que_ID;
-                            _student_Answer.Student_Answer = answer.Text;
-                            _context.Student_answers.Add(_student_Answer);
-                            
-                        }
-
-                    }
-                }
-                
-
-            }
-            _context.SaveChanges();
-
-
-            //await _context.Student_answers.AddRangeAsync(examForm.questions.ConvertAll(x => new student_answer()
-            //{
-            //    Question_Que_ID = x.Que_ID,
-            //    Student_Answer = x.Student_Answer.,
-            //    Student_Std_ID = 1,
-            //}));
-            //_context.SaveChanges();
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
+            logic.SubmitExam(examForm.questions);
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -136,11 +96,6 @@ namespace ExamCenter.Pages.Student
                 listOfExams.Show();
                 this.Close();
             }
-        }
-
-        private void label5_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
