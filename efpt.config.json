@@ -1,0 +1,69 @@
+﻿{
+   "CodeGenerationMode": 2,
+   "ContextClassName": "Exam_CenterContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": true,
+   "IncludeConnectionString": true,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "ExamCenter",
+   "Schemas": [ ],
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "answer",
+         "ObjectType": 0
+      },
+      {
+         "Name": "course",
+         "ObjectType": 0
+      },
+      {
+         "Name": "exam",
+         "ObjectType": 0
+      },
+      {
+         "Name": "question",
+         "ObjectType": 0
+      },
+      {
+         "Name": "student",
+         "ObjectType": 0
+      },
+      {
+         "Name": "student_answer",
+         "ObjectType": 0
+      },
+      {
+         "Name": "student_course",
+         "ObjectType": 0
+      },
+      {
+         "Name": "student_exam",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "Exam_Center",
+   "UncountableWords": null,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": true,
+   "UseDateOnlyTimeOnly": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": false,
+   "UseHandleBars": true,
+   "UseHierarchyId": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false,
+   "UseT4": false
+}
