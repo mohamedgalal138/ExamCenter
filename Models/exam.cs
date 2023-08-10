@@ -15,6 +15,13 @@ namespace ExamCenter.Models
             questions = new HashSet<question>();
             student_exams = new HashSet<student_exam>();
         }
+        public exam(int id , string title , string coursname , List<question> questions )
+        {
+            this.Exam_ID = id;
+            this.Title = title;
+            this.Course.Course_Name = coursname;
+            this.questions = questions;
+        }
 
         [Key]
         public int Exam_ID { get; set; }

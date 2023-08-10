@@ -24,6 +24,7 @@ namespace ExamCenter.Data
 
         public Context()
         {
+
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

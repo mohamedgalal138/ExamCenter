@@ -1,6 +1,7 @@
 using ExamCenter.business_logic;
 using ExamCenter.Pages.Admin;
 using ExamCenter.Pages.Student;
+using ExamCenter.View.Student;
 using ExamCenter.Viwe.Student;
 
 namespace ExamCenter
@@ -16,8 +17,11 @@ namespace ExamCenter
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            //Application.Run(new LogIn());
-            Application.Run(new ListOfExams());
+            Application.Run(new LogIn());
+            // Application.Run(new ListOfExams());
+            // Application.Run(new AddNewExam());
+            //Application.Run(new EditeAndDeleteExam());
+            //Application.Run(new DegreeOfExam());
         }
     }
 }
