@@ -61,8 +61,14 @@ namespace ExamCenter.View.Custom_Component
 
         public async Task CreatePanel(FlowLayoutPanel flow)
         {
-            var questionsid = await _context.Student_answers.Where(s => s.Student_Std_ID == LogIn.StudentId).Select(q => new {q.Question_Que_ID , q.Student_Answer }).ToListAsync();
+            var questionsid = await _context.Student_answers.Where(s => s.Student_Std_ID == LogIn.StudentId ).Select(q => new {q.Question_Que_ID , q.Student_Answer }).ToListAsync();
+     
+            foreach (var question in questionsid)
+            {
+                int id = 0;
+                var q = await _context.Questions.Where(e => e.Exam_ID == id).ToListAsync();
 
+            }
             foreach (var item in questionsid)
             {
                 var questiontitle = await _context.Questions.Where(q => q.Que_ID == item.Question_Que_ID).Select(q => new {q.Title , q.Mark}).FirstOrDefaultAsync();
@@ -117,7 +123,7 @@ namespace ExamCenter.View.Custom_Component
                     Left = 100,
                     WrapContents = false,
                     MinimumSize = new(400, 100),
-                    BackColor = Color.Black,
+                    BackColor = Color.White,
 
 
                 };

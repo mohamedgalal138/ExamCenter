@@ -4,6 +4,7 @@ using ExamCenter.Logic.Student;
 using ExamCenter.Models;
 using ExamCenter.View.Student;
 using ExamCenter.Viwe.Student;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -71,12 +72,12 @@ namespace ExamCenter.Pages.Student
         private async void button2_Click(object sender, EventArgs e)
         {
            
-            var x = examForm.AnswersRadioButton.Where(a => a.Checked == true).ToList();
+            var x =  examForm.AnswersRadioButton.Where(a => a.Checked == true).ToList();
             
 
             examForm.questions.ForEach(async a =>
             {
-                a.StudentAnswerString =  x.Where(b => b.Name == a.Que_ID.ToString()).FirstOrDefault().Text;
+                a.StudentAnswerString =  x?.Where(b => b.Name == a.Que_ID.ToString())?.FirstOrDefault()?.Text;
               
             });
 
