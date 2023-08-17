@@ -15,7 +15,7 @@ namespace ExamCenter.Models
         public int Std_ID { get; set; }
         [Key]
         public int Exam_ID { get; set; }
-        public DateOnly Exam_Date { get; set; }
+        public DateTime Exam_Date { get; set; }
         public int Exam_Degree { get; set; }
 
         [ForeignKey(nameof(Exam_ID))]

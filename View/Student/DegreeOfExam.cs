@@ -18,24 +18,28 @@ namespace ExamCenter.View.Student
 {
     public partial class DegreeOfExam : Form
     {
-        Context _context = new();
-        
+        exam exam;
+
         DegreeOfExmaLogic _Logic = new();
+
         QuestionsCorrect QuestionsCorrect = new();
-        public DegreeOfExam()
+
+        public DegreeOfExam(exam _exam)
         {
             InitializeComponent();
-          
+            this.exam = _exam;
         }
 
         private async void DegreeOfExam_Load(object sender, EventArgs e)
         {
-
-            await QuestionsCorrect.CreatePanel(PanelQuestions);
+            labelStudentDegree.Text += QuestionsCorrect.Degree.ToString();
+            labelExamDegree.Text += await _Logic.ExamDegree(exam.Exam_ID);
             labelStudentName.Text += await _Logic.GetStudentName(LogIn.StudentId);
-            //var id = await _context.Student_answers.Where(s => s.Student_Std_ID == 6).Select(q => q.Question_Que_ID).FirstOrDefaultAsync();
-            labelExamName.Text += await _Logic.GetExamTitle(LogIn.StudentId);
-            labelCourseName.Text += await _Logic.GetCourseName(LogIn.StudentId);
+            labelExamName.Text += await _Logic.GetExamTitle(exam.Exam_ID);
+            labelCourseName.Text += await _Logic.GetCourseName(exam.Exam_ID);
+            await QuestionsCorrect.CreatePanel(PanelQuestions, exam);
         }
+
+
     }
 }

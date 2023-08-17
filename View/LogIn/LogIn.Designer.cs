@@ -63,7 +63,7 @@
             label1.Name = "label1";
             label1.Size = new Size(116, 34);
             label1.TabIndex = 1;
-            label1.Text = "User Name";
+            label1.Text = "E-mail";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureBox1

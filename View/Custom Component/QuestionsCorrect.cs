@@ -2,6 +2,7 @@
 using ExamCenter.Logic.Student;
 using ExamCenter.Models;
 using ExamCenter.Viwe.Student;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -14,8 +15,10 @@ namespace ExamCenter.View.Custom_Component
     public class QuestionsCorrect
     {
 
-        DegreeOfExmaLogic _Logic = new();
-        readonly Context _context = new Context();
+        public  int Degree ;
+
+        readonly DegreeOfExmaLogic Logic = new ();
+       
 
         public Panel? MainPanel ;
         public Label? QuestionsLabel ;
@@ -29,14 +32,7 @@ namespace ExamCenter.View.Custom_Component
         public Label? StudentAnswerValue;
         public Label? QuestionMarkLabel;
         public Label? Mark;
-
         
-
-        public async Task<int> QuestionCount()
-        {
-           return  await _context.Student_answers.Where(s => s.Student_Std_ID == 6).Select(q => q.Question_Que_ID).CountAsync();
-        }
-
         public QuestionsCorrect() 
         {
             
@@ -55,23 +51,18 @@ namespace ExamCenter.View.Custom_Component
             MainPanel.Controls.Add(StudentAnswerValue);
             MainPanel.Controls.Add(QuestionMarkLabel);
             MainPanel.Controls.Add(Mark);
-
-
         }
 
-        public async Task CreatePanel(FlowLayoutPanel flow)
+        public async Task CreatePanel(FlowLayoutPanel flow , exam exam)
         {
-            var questionsid = await _context.Student_answers.Where(s => s.Student_Std_ID == LogIn.StudentId ).Select(q => new {q.Question_Que_ID , q.Student_Answer }).ToListAsync();
-     
-            foreach (var question in questionsid)
+            
+            var studentanswers = await Logic.GetAllQuestions(LogIn.StudentId, exam.Exam_ID);
+           
+            foreach (var item in studentanswers)
             {
-                int id = 0;
-                var q = await _context.Questions.Where(e => e.Exam_ID == id).ToListAsync();
+                var questiontitle = await Logic.GetQuestionsID(item.Question_Que_ID);
 
-            }
-            foreach (var item in questionsid)
-            {
-                var questiontitle = await _context.Questions.Where(q => q.Que_ID == item.Question_Que_ID).Select(q => new {q.Title , q.Mark}).FirstOrDefaultAsync();
+
                 MainPanel = new()
                 {
                     Margin = new(6),
@@ -84,7 +75,7 @@ namespace ExamCenter.View.Custom_Component
                     {
                         Height = 500
                     },
-                    Dock = DockStyle.Fill,
+                   // Dock = DockStyle.Fill,
                     Height = 600,
 
                 };
@@ -167,7 +158,7 @@ namespace ExamCenter.View.Custom_Component
                 };
                 QuestionMarkLabel = new()
                 {
-                    Text = "Mark : " ,
+                    Text = "Your Mark : " ,
                     AutoSize = true,
                     Top = 450,
                     Left = 0,
@@ -175,14 +166,14 @@ namespace ExamCenter.View.Custom_Component
                 };
                 Mark = new()
                 {
-                   
                     AutoSize = true,
                     Top = 450,
                     Left = 150,
                     Font = new Font("Segoe UI", 12),
                 };
 
-                var answers = await _context.Answers.Where(a => a.Question_ID == item.Question_Que_ID).Select(a => new { a.Value, a.IScorrect }).ToListAsync();
+                var answers = await Logic.GetAnswers(item.Question_Que_ID);
+
                 foreach (var answer in answers)
                 {
                   
@@ -201,27 +192,37 @@ namespace ExamCenter.View.Custom_Component
                     {
                         AnswerButton.BackColor = Color.Green;
                         AnswerButton.Checked = true;
+
                         if (item.Student_Answer == answer.Value)
                         {
+                            AnswerButton.Checked = true;
+                            AnswerButton.BackColor = Color.Green;
                             StudentAnswerValue.BackColor = Color.Green;
                             Right.Visible = true;
                             Wrong.Visible = false;
                             Mark.Text = questiontitle?.Mark.ToString();
+                            Degree += questiontitle.Mark;
+                            MessageBox.Show(" d = " + Degree);
                         }
+
                         else
                         {
+                            
+                            AnswerButton.BackColor= Color.Red;
                             StudentAnswerValue.BackColor = Color.Red;
                             Right.Visible = false;
                             Wrong.Visible = true;
                             Mark.Text = "0";
                         }
-                        
                     }  
+
                     else
                     {
-                        AnswerButton.BackColor = Color.Red;
+                        AnswerButton.BackColor = Color.White;
                     }
-                      
+
+                  
+
                     flow1.Controls.Add(AnswerButton);
                     await AddControls();
                 }

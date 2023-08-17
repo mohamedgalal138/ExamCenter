@@ -30,7 +30,7 @@ namespace ExamCenter.Viwe.Student
             this.Controls.Add(loader.panel);
             if (UserName.Text.ToLower() == "admin" && PassWord.Text == "12345")
             {
-                EditeAndDeleteExam Home = new EditeAndDeleteExam();
+                EditeAndDeleteExam Home = new ();
                 this.Controls.Remove(loader.panel);
                 MessageBox.Show("Welcome....");
                 Home.Show();
@@ -38,12 +38,8 @@ namespace ExamCenter.Viwe.Student
             }
             else
             {
-                LogInLogic logic = new LogInLogic();
+                LogInLogic logic = new ();
                 StudentId = await logic.Login(UserName.Text, PassWord.Text);
-                DoExamLogic doExam = new()
-                {
-                 StudentID = StudentId,
-                };
                 this.Controls.Remove(loader.panel);
                 if (StudentId == 0)
                 {
@@ -56,14 +52,14 @@ namespace ExamCenter.Viwe.Student
                     Home.Show();
                     this.Hide();
                 }
-               
+
             }
 
         }
 
         public void SignUp(Object o, EventArgs e)
         {
-            SignUp signUp = new SignUp();
+            SignUp signUp = new ();
             signUp.Show();
             this.Hide();
         }

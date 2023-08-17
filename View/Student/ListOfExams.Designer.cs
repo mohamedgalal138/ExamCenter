@@ -28,11 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            panel2 = new Panel();
-            BtnStart = new Button();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             BtnSideBar = new Button();
             LabelCourse = new Label();
             LabelExamTitle = new Label();
@@ -48,36 +45,14 @@
             LabelCountOfQuestions = new Label();
             panel4 = new Panel();
             BtnExit = new Button();
-            errorProvider1 = new ErrorProvider(components);
-            panel2.SuspendLayout();
+            panel2 = new Panel();
+            BtnStart = new Button();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ListExamView).BeginInit();
             panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
-            // 
-            // panel2
-            // 
-            panel2.Controls.Add(BtnStart);
-            panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(334, 656);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(638, 64);
-            panel2.TabIndex = 12;
-            // 
-            // BtnStart
-            // 
-            BtnStart.Dock = DockStyle.Bottom;
-            BtnStart.FlatAppearance.BorderSize = 0;
-            BtnStart.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            BtnStart.Location = new Point(0, 2);
-            BtnStart.Name = "BtnStart";
-            BtnStart.Size = new Size(638, 62);
-            BtnStart.TabIndex = 1;
-            BtnStart.Text = "Start";
-            BtnStart.UseVisualStyleBackColor = true;
-            BtnStart.Click += BtnStart_Click;
             // 
             // BtnSideBar
             // 
@@ -87,9 +62,9 @@
             BtnSideBar.FlatAppearance.MouseOverBackColor = SystemColors.Control;
             BtnSideBar.FlatStyle = FlatStyle.Flat;
             BtnSideBar.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point);
-            BtnSideBar.Location = new Point(334, 0);
+            BtnSideBar.Location = new Point(345, 0);
             BtnSideBar.Name = "BtnSideBar";
-            BtnSideBar.Size = new Size(53, 656);
+            BtnSideBar.Size = new Size(41, 767);
             BtnSideBar.TabIndex = 13;
             BtnSideBar.Text = "<";
             BtnSideBar.UseVisualStyleBackColor = true;
@@ -131,14 +106,14 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(334, 69);
+            panel1.Size = new Size(345, 63);
             panel1.TabIndex = 2;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(115, 9);
+            label5.Location = new Point(100, 9);
             label5.Name = "label5";
             label5.Size = new Size(113, 46);
             label5.TabIndex = 0;
@@ -151,7 +126,7 @@
             panel3.Dock = DockStyle.Left;
             panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(334, 720);
+            panel3.Size = new Size(345, 767);
             panel3.TabIndex = 8;
             // 
             // ListExamView
@@ -164,27 +139,27 @@
             ListExamView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             ListExamView.BackgroundColor = Color.White;
             ListExamView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            ListExamView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            ListExamView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             ListExamView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            ListExamView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            ListExamView.DefaultCellStyle = dataGridViewCellStyle4;
             ListExamView.Dock = DockStyle.Fill;
             ListExamView.EnableHeadersVisualStyles = false;
             ListExamView.GridColor = Color.Black;
-            ListExamView.Location = new Point(0, 69);
+            ListExamView.Location = new Point(0, 63);
             ListExamView.MultiSelect = false;
             ListExamView.Name = "ListExamView";
             ListExamView.ReadOnly = true;
@@ -194,9 +169,9 @@
             ListExamView.RowTemplate.Height = 29;
             ListExamView.RowTemplate.ReadOnly = true;
             ListExamView.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            ListExamView.Size = new Size(334, 651);
-            ListExamView.TabIndex = 3;
-            ListExamView.CellClick += CellClick;
+            ListExamView.Size = new Size(345, 704);
+            ListExamView.TabIndex = 4;
+            ListExamView.CellClick += ListExamView_CellClick;
             // 
             // CourseName
             // 
@@ -260,18 +235,19 @@
             panel4.Controls.Add(CourseName);
             panel4.Controls.Add(ExamDuration);
             panel4.Dock = DockStyle.Top;
-            panel4.Location = new Point(387, 0);
+            panel4.Location = new Point(386, 0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(585, 299);
+            panel4.Size = new Size(679, 273);
             panel4.TabIndex = 22;
             // 
             // BtnExit
             // 
             BtnExit.Anchor = AnchorStyles.None;
+            BtnExit.AutoSize = true;
             BtnExit.BackColor = Color.Red;
             BtnExit.FlatStyle = FlatStyle.Flat;
             BtnExit.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            BtnExit.Location = new Point(526, 5);
+            BtnExit.Location = new Point(629, 5);
             BtnExit.Name = "BtnExit";
             BtnExit.Size = new Size(46, 38);
             BtnExit.TabIndex = 22;
@@ -279,39 +255,53 @@
             BtnExit.UseVisualStyleBackColor = false;
             BtnExit.Click += BtnExit_Click;
             // 
-            // errorProvider1
+            // panel2
             // 
-            errorProvider1.ContainerControl = this;
+            panel2.Controls.Add(BtnStart);
+            panel2.Dock = DockStyle.Bottom;
+            panel2.Location = new Point(386, 710);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(679, 57);
+            panel2.TabIndex = 23;
+            // 
+            // BtnStart
+            // 
+            BtnStart.Dock = DockStyle.Bottom;
+            BtnStart.FlatAppearance.BorderSize = 0;
+            BtnStart.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            BtnStart.Location = new Point(0, 3);
+            BtnStart.Name = "BtnStart";
+            BtnStart.Size = new Size(679, 54);
+            BtnStart.TabIndex = 1;
+            BtnStart.Text = "Start";
+            BtnStart.UseVisualStyleBackColor = true;
+            BtnStart.Click += BtnStart_Click_1;
             // 
             // ListOfExams
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(972, 720);
+            ClientSize = new Size(1065, 767);
+            Controls.Add(panel2);
             Controls.Add(panel4);
             Controls.Add(BtnSideBar);
-            Controls.Add(panel2);
             Controls.Add(panel3);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ListOfExams";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ListOfExams";
             Load += ListOfExams_Load;
-            panel2.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)ListExamView).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
-
         #endregion
-        private Panel panel2;
-        private Button BtnStart;
         private Button BtnSideBar;
         private Label LabelCourse;
         private Label LabelExamTitle;
@@ -319,7 +309,6 @@
         private Panel panel1;
         private Label label5;
         private Panel panel3;
-        public DataGridView ListExamView;
         private TextBox CourseName;
         private TextBox ExamDuration;
         private TextBox ExamTitle;
@@ -327,6 +316,8 @@
         private Label LabelCountOfQuestions;
         private Panel panel4;
         private Button BtnExit;
-        private ErrorProvider errorProvider1;
+        public DataGridView ListExamView;
+        private Panel panel2;
+        private Button BtnStart;
     }
 }
