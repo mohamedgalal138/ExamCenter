@@ -14,16 +14,22 @@ namespace ExamCenter.business_logic.Student
 {
     public class DoExamLogic
     {
-        public int StudentID;
 
-        Context _context = new();
+       private exam? exam;
+
+        Context? _context = new();
 
         public DoExamLogic()
         {
            
         }
+        public DoExamLogic( exam _exam)
+        {
+            this.exam = _exam;
+                
+        }
 
-        public course? GetCourse(int courseexamid) 
+        public  course? GetCourse(int courseexamid) 
         {
             return _context.Courses.Where(c => c.course_ID == courseexamid).FirstOrDefault();
         }
@@ -43,6 +49,15 @@ namespace ExamCenter.business_logic.Student
                     Student_Answer = item.StudentAnswerString?? "Null",
                 });
             }
+
+            await _context.Student_exams.AddAsync(new student_exam()
+            {
+                Exam_Date = DateTime.Now,
+                Std_ID = LogIn.StudentId,
+                Exam_ID = exam.Exam_ID,
+
+            });
+
             await _context.SaveChangesAsync();  
         }
     }

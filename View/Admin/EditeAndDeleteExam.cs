@@ -32,40 +32,6 @@ namespace ExamCenter.Pages.Admin
             ExamList.Columns[4].Visible = false;
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            AddNewExam newEX = new AddNewExam();
-            newEX.Show();
-            this.Hide();
-        }
-
-        private async void btnDelete_Click(object sender, EventArgs e)
-        {
-            if (ExamList.Rows.Count == 0)
-            {
-                MessageBox.Show("List Of Exams Is Empty...");
-            }
-            else
-            {
-                examid = (int)ExamList.CurrentRow.Cells[0].Value;
-                EditeAndDeleteExamLogic Logic = new();
-                bool flag = await Logic.DeleteExam(examid);
-                if (flag)
-                {
-                    MessageBox.Show("The Exam is Deleted");
-                    await Logic.LoadExams(ExamList);
-                    await HideCulomns();
-                }
-                else
-                {
-                    MessageBox.Show("Ooooops...\n  The Exam is Not Deleted");
-                }
-
-            }
-
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (button1.Text == "<")
@@ -108,6 +74,39 @@ namespace ExamCenter.Pages.Admin
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnAdd_Click_1(object sender, EventArgs e)
+        {
+            AddNewExam newEX = new AddNewExam();
+            newEX.Show();
+            this.Close();
+        }
+
+        private async void btnDelete_Click_1(object sender, EventArgs e)
+        {
+            if (ExamList.Rows.Count == 0)
+            {
+                MessageBox.Show("List Of Exams Is Empty...");
+            }
+            else
+            {
+                examid = (int)ExamList.CurrentRow.Cells[0].Value;
+                EditeAndDeleteExamLogic Logic = new();
+                bool flag = await Logic.DeleteExam(examid);
+                if (flag)
+                {
+                    MessageBox.Show("The Exam is Deleted");
+                    await Logic.LoadExams(ExamList);
+                    await HideCulomns();
+                }
+                else
+                {
+                    MessageBox.Show("Ooooops...\n  The Exam is Not Deleted");
+                }
+
+            }
 
         }
     }

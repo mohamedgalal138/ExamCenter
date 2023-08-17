@@ -17,11 +17,11 @@ namespace ExamCenter.Pages.Student
     public partial class ListOfExams : Form
     {
 
-       
-        
+
+
         public exam? _exam;
 
-        ListOfExamsLogic logic = new();
+       readonly ListOfExamsLogic logic = new();
 
         public ListOfExams()
         {
@@ -30,20 +30,22 @@ namespace ExamCenter.Pages.Student
 
         public async Task HideCulomns()
         {
-            ListExamView.CurrentCell = null;
+
             ListExamView.Columns[1].Visible = false;
             ListExamView.Columns[2].Visible = false;
             ListExamView.Columns[3].Visible = false;
             ListExamView.Columns[4].Visible = false;
             ListExamView.Columns[5].Visible = false;
+            ListExamView.CurrentCell = null;
         }
 
         private async void ListOfExams_Load(object sender, EventArgs e)
         {
-          
+
             await logic.LoadExams(ListExamView);
             await HideCulomns();
-        } 
+        }
+
         private void BtnSideBar_Click(object sender, EventArgs e)
         {
             if (BtnSideBar.Text == ">")
@@ -58,7 +60,12 @@ namespace ExamCenter.Pages.Student
             }
         }
 
-        private void BtnStart_Click(object sender, EventArgs e)
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void BtnStart_Click_1(object sender, EventArgs e)
         {
             if (ListExamView.CurrentCell == null)
             {
@@ -68,9 +75,9 @@ namespace ExamCenter.Pages.Student
             {
                 DoExam _doExam = new(new exam()
                 {
-                    Title =  ListExamView.CurrentRow.Cells[0].Value.ToString()?? "Unkown",
+                    Title = ListExamView.CurrentRow.Cells[0].Value.ToString() ?? "Unkown",
                     Exam_ID = (int)ListExamView.CurrentRow.Cells[1].Value,
-                    Course_ID = (int)ListExamView.CurrentRow.Cells[2].Value, 
+                    Course_ID = (int)ListExamView.CurrentRow.Cells[2].Value,
                     Duration = (int)ListExamView.CurrentRow.Cells[4].Value,
 
                 });
@@ -78,21 +85,15 @@ namespace ExamCenter.Pages.Student
                 this.Hide();
             }
 
-
         }
 
-        private void CellClick(object sender, DataGridViewCellEventArgs e)
+        private void ListExamView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             ExamTitle.Text = ListExamView.CurrentRow.Cells[0].Value.ToString();
             CourseName.Text = ListExamView.CurrentRow.Cells[3].Value.ToString();
             ExamDuration.Text = ListExamView.CurrentRow.Cells[4].Value.ToString();
             CountOfQuestions.Text = ListExamView.CurrentRow.Cells[5].Value.ToString();
-            ListExamView.CurrentCell = null;
-        }
 
-        private void BtnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
     }
 }

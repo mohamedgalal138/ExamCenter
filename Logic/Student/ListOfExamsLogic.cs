@@ -1,5 +1,6 @@
 ﻿using ExamCenter.Data;
 using ExamCenter.Models;
+using ExamCenter.Viwe.Student;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,22 +16,41 @@ namespace ExamCenter.business_logic.Student
     {
         Context _context = new();
 
-
         public async Task LoadExams( DataGridView view )
         {
-                                                      
-            
-            var Exams = from exam in _context.Exams select new
-                                                                {
-                                                                 Exam = exam.Title , 
-                                                                 Id = exam.Exam_ID,
-                                                                 CourseId = exam.Course.course_ID, 
-                                                                 CourseName = exam.Course.Course_Name,
-                                                                 Duration = exam.Duration,
-                                                                 CountOfQuestions = exam.questions.Count
-                                                                };
-            view.DataSource = await Exams.ToListAsync();
-            
+                                             
+            var id = await _context.Student_exams.AnyAsync( e => e.Std_ID == LogIn.StudentId);
+            if(id)
+            {
+                var Exams = from E in _context.Exams
+                            from SE in _context.Student_exams
+                            where SE.Std_ID == LogIn.StudentId && E.Exam_ID != SE.Exam_ID
+                            select new
+                            {
+                                Exam = E.Title,
+                                Id = E.Exam_ID,
+                                CourseId = E.Course.course_ID,
+                                CourseName = E.Course.Course_Name,
+                                Duration = E.Duration,
+                                CountOfQuestions = E.questions.Count
+                            };
+                view.DataSource = await Exams.ToListAsync();
+            }
+            else
+            {
+                var Exams = from E in _context.Exams
+                            select new
+                            {
+                                Exam = E.Title,
+                                Id = E.Exam_ID,
+                                CourseId = E.Course.course_ID,
+                                CourseName = E.Course.Course_Name,
+                                Duration = E.Duration,
+                                CountOfQuestions = E.questions.Count
+                            };
+                view.DataSource = await Exams.ToListAsync();
+            }
+              
         }
 
 

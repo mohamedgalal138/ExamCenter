@@ -13,9 +13,7 @@ namespace ExamCenter.business_logic.SignUp
 {
     public class SignUpLogic
     {
-        Context _context = new Context();
-
-        student student;
+       readonly Context _context = new ();
 
         public string? email;
 
@@ -27,14 +25,7 @@ namespace ExamCenter.business_logic.SignUp
         {
             this.email = _email;
             this.password = _password;
-            this.Name = _name;
-
-            student = new()
-            {
-                Std_Name = Name ,
-                UserName = email ,
-                PassWord = password ,
-            };   
+            this.Name = _name;  
         }
        
         public async Task<bool> AddNewStudent()
@@ -42,10 +33,15 @@ namespace ExamCenter.business_logic.SignUp
             bool flag = true;
             try
             {
-                await _context.Students.AddAsync(student);
+                await _context.Students.AddAsync(new student()
+                {
+                    Std_Name = Name?? "null",
+                    UserName = email?? "null",
+                    PassWord = password?? "null",
+                });
                  await _context.SaveChangesAsync();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 flag = false;
             }

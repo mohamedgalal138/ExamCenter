@@ -32,8 +32,12 @@
             labelExamName = new Label();
             labelCourseName = new Label();
             labelStudentName = new Label();
+            panelDegree = new Panel();
+            labelExamDegree = new Label();
+            labelStudentDegree = new Label();
             PanelQuestions = new FlowLayoutPanel();
             PanelExamInfo.SuspendLayout();
+            panelDegree.SuspendLayout();
             SuspendLayout();
             // 
             // PanelExamInfo
@@ -46,7 +50,7 @@
             PanelExamInfo.Dock = DockStyle.Top;
             PanelExamInfo.Location = new Point(0, 0);
             PanelExamInfo.Name = "PanelExamInfo";
-            PanelExamInfo.Size = new Size(990, 165);
+            PanelExamInfo.Size = new Size(990, 173);
             PanelExamInfo.TabIndex = 0;
             // 
             // labelExamName
@@ -82,6 +86,38 @@
             labelStudentName.TabIndex = 0;
             labelStudentName.Text = "Student Name : ";
             // 
+            // panelDegree
+            // 
+            panelDegree.BackColor = SystemColors.ActiveCaption;
+            panelDegree.Controls.Add(labelExamDegree);
+            panelDegree.Controls.Add(labelStudentDegree);
+            panelDegree.Dock = DockStyle.Bottom;
+            panelDegree.Location = new Point(0, 651);
+            panelDegree.Margin = new Padding(0);
+            panelDegree.Name = "panelDegree";
+            panelDegree.Size = new Size(990, 73);
+            panelDegree.TabIndex = 2;
+            // 
+            // labelExamDegree
+            // 
+            labelExamDegree.AutoSize = true;
+            labelExamDegree.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelExamDegree.Location = new Point(599, 15);
+            labelExamDegree.Name = "labelExamDegree";
+            labelExamDegree.Size = new Size(145, 28);
+            labelExamDegree.TabIndex = 1;
+            labelExamDegree.Text = "Exam Degree :  ";
+            // 
+            // labelStudentDegree
+            // 
+            labelStudentDegree.AutoSize = true;
+            labelStudentDegree.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelStudentDegree.Location = new Point(25, 13);
+            labelStudentDegree.Name = "labelStudentDegree";
+            labelStudentDegree.Size = new Size(138, 28);
+            labelStudentDegree.TabIndex = 0;
+            labelStudentDegree.Text = "Your Degree :  ";
+            // 
             // PanelQuestions
             // 
             PanelQuestions.AutoScroll = true;
@@ -89,10 +125,11 @@
             PanelQuestions.BackColor = SystemColors.GradientInactiveCaption;
             PanelQuestions.Dock = DockStyle.Fill;
             PanelQuestions.FlowDirection = FlowDirection.TopDown;
-            PanelQuestions.Location = new Point(0, 165);
+            PanelQuestions.Location = new Point(0, 173);
+            PanelQuestions.Margin = new Padding(0);
             PanelQuestions.Name = "PanelQuestions";
-            PanelQuestions.Size = new Size(990, 559);
-            PanelQuestions.TabIndex = 1;
+            PanelQuestions.Size = new Size(990, 478);
+            PanelQuestions.TabIndex = 3;
             PanelQuestions.WrapContents = false;
             // 
             // DegreeOfExam
@@ -102,6 +139,7 @@
             AutoScroll = true;
             ClientSize = new Size(990, 724);
             Controls.Add(PanelQuestions);
+            Controls.Add(panelDegree);
             Controls.Add(PanelExamInfo);
             Name = "DegreeOfExam";
             StartPosition = FormStartPosition.CenterScreen;
@@ -109,6 +147,8 @@
             Load += DegreeOfExam_Load;
             PanelExamInfo.ResumeLayout(false);
             PanelExamInfo.PerformLayout();
+            panelDegree.ResumeLayout(false);
+            panelDegree.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -118,6 +158,9 @@
         private Label labelExamName;
         private Label labelCourseName;
         private Label labelStudentName;
+        private Panel panelDegree;
+        private Label labelStudentDegree;
+        private Label labelExamDegree;
         private FlowLayoutPanel PanelQuestions;
     }
 }

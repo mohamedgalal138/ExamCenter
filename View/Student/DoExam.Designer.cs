@@ -34,7 +34,7 @@
             label5 = new Label();
             button1 = new Button();
             panel1 = new Panel();
-            button2 = new Button();
+            BtnSubmit = new Button();
             panel2 = new Panel();
             timer = new System.Windows.Forms.Timer(components);
             label1 = new Label();
@@ -46,7 +46,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(44, 104);
+            label4.Location = new Point(31, 104);
             label4.Name = "label4";
             label4.Size = new Size(107, 32);
             label4.TabIndex = 20;
@@ -56,12 +56,11 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(44, 59);
+            label3.Location = new Point(31, 59);
             label3.Name = "label3";
             label3.Size = new Size(135, 32);
             label3.TabIndex = 19;
             label3.Text = "Exam Title: ";
-          
             // 
             // label5
             // 
@@ -87,27 +86,28 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(button2);
+            panel1.Controls.Add(BtnSubmit);
             panel1.Dock = DockStyle.Bottom;
             panel1.Location = new Point(0, 653);
             panel1.Name = "panel1";
             panel1.Size = new Size(957, 88);
             panel1.TabIndex = 29;
             // 
-            // button2
+            // BtnSubmit
             // 
-            button2.BackColor = Color.FromArgb(0, 192, 0);
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 192, 0);
-            button2.FlatAppearance.MouseOverBackColor = Color.Green;
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(701, 20);
-            button2.Name = "button2";
-            button2.Size = new Size(158, 56);
-            button2.TabIndex = 0;
-            button2.Text = "Submit";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            BtnSubmit.BackColor = Color.Green;
+            BtnSubmit.FlatAppearance.BorderSize = 0;
+            BtnSubmit.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 192, 0);
+            BtnSubmit.FlatAppearance.MouseOverBackColor = Color.Green;
+            BtnSubmit.FlatStyle = FlatStyle.Flat;
+            BtnSubmit.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            BtnSubmit.Location = new Point(797, 16);
+            BtnSubmit.Name = "BtnSubmit";
+            BtnSubmit.Size = new Size(130, 50);
+            BtnSubmit.TabIndex = 0;
+            BtnSubmit.Text = "Submit";
+            BtnSubmit.UseVisualStyleBackColor = false;
+            BtnSubmit.Click += BtnSubmit_Click;
             // 
             // panel2
             // 
@@ -173,7 +173,7 @@
         private Label label5;
         private Button button1;
         private Panel panel1;
-        private Button button2;
+        private Button BtnSubmit;
         private Panel panel2;
         private System.Windows.Forms.Timer timer;
         private Label label1;

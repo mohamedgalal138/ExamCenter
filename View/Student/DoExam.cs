@@ -2,8 +2,10 @@
 using ExamCenter.Data;
 using ExamCenter.Logic.Student;
 using ExamCenter.Models;
+using ExamCenter.View.Custom_Component;
 using ExamCenter.View.Student;
 using ExamCenter.Viwe.Student;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +23,7 @@ namespace ExamCenter.Pages.Student
 
         public exam exam;
 
-        DoExamLogic logic = new();
+        DoExamLogic logic;
 
         public ExamForm examForm;
 
@@ -33,6 +35,7 @@ namespace ExamCenter.Pages.Student
             InitializeComponent();
             this.exam = _exam;
             examForm = new ExamForm(exam);
+            logic = new(exam);
             label1.Text = Secounds.ToString();
             mints = exam.Duration - 1;
             timer.Start();
@@ -63,26 +66,26 @@ namespace ExamCenter.Pages.Student
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ListOfExams listOfExams = new ();
+            ListOfExams listOfExams = new();
             listOfExams.Show();
             this.Close();
         }
 
-        private async void button2_Click(object sender, EventArgs e)
+        private async void BtnSubmit_Click(object sender, EventArgs e)
         {
-           
+
             var x = examForm.AnswersRadioButton.Where(a => a.Checked == true).ToList();
-            
+
 
             examForm.questions.ForEach(async a =>
             {
-                a.StudentAnswerString =  x.Where(b => b.Name == a.Que_ID.ToString()).FirstOrDefault().Text;
-              
+                a.StudentAnswerString = x?.Where(b => b.Name == a.Que_ID.ToString())?.FirstOrDefault()?.Text;
+
             });
 
 
-            await logic.SubmitExam(examForm.questions );
-            DegreeOfExam degreeOfExam = new();
+            await logic.SubmitExam(examForm.questions);
+            DegreeOfExam degreeOfExam = new(exam);
             degreeOfExam.Show();
             this.Close();
         }
@@ -105,6 +108,6 @@ namespace ExamCenter.Pages.Student
             }
         }
 
- 
+
     }
 }

@@ -21,19 +21,15 @@ namespace ExamCenter.Viwe.Student
 
         public  Panel panel = new ()
         {   
-           
             Size = new Size(70, 70),
-           
         };
 
         public PictureBox pictureBox = new()
         {
             Image = Resource1.loader,
             SizeMode = PictureBoxSizeMode.Zoom,
-           // Visible = true,
-           // Location = new Point(199, 300),
-            Size = new Size(40,40),
-            BackColor = Color.Transparent,
+            Size = new Size(70,70),
+            BackColor = Color.White,
             Dock = DockStyle.Fill,
             
         };

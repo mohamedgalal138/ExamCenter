@@ -157,9 +157,10 @@
             BtnLogOut.FlatAppearance.BorderSize = 0;
             BtnLogOut.FlatStyle = FlatStyle.Flat;
             BtnLogOut.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            BtnLogOut.ForeColor = Color.White;
             BtnLogOut.Location = new Point(0, 0);
             BtnLogOut.Name = "BtnLogOut";
-            BtnLogOut.Size = new Size(114, 60);
+            BtnLogOut.Size = new Size(114, 57);
             BtnLogOut.TabIndex = 28;
             BtnLogOut.Text = "LogOut";
             BtnLogOut.UseVisualStyleBackColor = false;
@@ -169,9 +170,9 @@
             // 
             panel3.Controls.Add(BtnLogOut);
             panel3.Dock = DockStyle.Bottom;
-            panel3.Location = new Point(427, 753);
+            panel3.Location = new Point(427, 756);
             panel3.Name = "panel3";
-            panel3.Size = new Size(601, 60);
+            panel3.Size = new Size(601, 57);
             panel3.TabIndex = 29;
             // 
             // panel4
@@ -191,7 +192,7 @@
             panel4.Dock = DockStyle.Top;
             panel4.Location = new Point(427, 0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(601, 522);
+            panel4.Size = new Size(601, 377);
             panel4.TabIndex = 30;
             // 
             // btnAdd
@@ -201,12 +202,14 @@
             btnAdd.FlatAppearance.BorderSize = 2;
             btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAdd.Location = new Point(3, 271);
+            btnAdd.ForeColor = Color.White;
+            btnAdd.Location = new Point(5, 282);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(192, 80);
             btnAdd.TabIndex = 30;
             btnAdd.Text = "Add New";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click_1;
             // 
             // btnUpdate
             // 
@@ -215,9 +218,10 @@
             btnUpdate.FlatAppearance.BorderSize = 2;
             btnUpdate.FlatStyle = FlatStyle.Flat;
             btnUpdate.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            btnUpdate.Location = new Point(199, 271);
+            btnUpdate.ForeColor = Color.White;
+            btnUpdate.Location = new Point(203, 282);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(195, 79);
+            btnUpdate.Size = new Size(192, 80);
             btnUpdate.TabIndex = 29;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
@@ -230,12 +234,14 @@
             btnDelete.FlatAppearance.BorderSize = 2;
             btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            btnDelete.Location = new Point(398, 274);
+            btnDelete.ForeColor = Color.White;
+            btnDelete.Location = new Point(400, 282);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(199, 75);
+            btnDelete.Size = new Size(192, 80);
             btnDelete.TabIndex = 28;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click_1;
             // 
             // label6
             // 

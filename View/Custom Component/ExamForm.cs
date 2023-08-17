@@ -79,17 +79,22 @@ namespace ExamCenter.Pages
             LoadQuestionAndAnswer();
             Next.Click += NextPage;
             Previous.Click += PreviousPage; 
+            Previous.Visible = false;
         }
-
         public void NextPage(object sender , EventArgs e)
         {
-            if (index < panels.Count - 1)
+
+
+            if(index == panels.Count - 2)
             {
                 panels[++index].BringToFront();
+                Next.Visible = false;
             }
             else
             {
-                MessageBox.Show("No More Page");
+                panels[++index].BringToFront();
+                Next.Visible = true;
+                Previous.Visible = true;
             }
         }
 
@@ -98,10 +103,14 @@ namespace ExamCenter.Pages
                 if (index > 0)
                 {
                     panels[--index].BringToFront();
+                    Previous.Visible = true;
+                     Next.Visible = true;
+
                 }
-                else
+                else if(index == panels.Count)
                 {
-                    MessageBox.Show("No More Page");
+                  panels[--index].BringToFront();
+                  Previous.Visible = false;
                 }      
         }
 

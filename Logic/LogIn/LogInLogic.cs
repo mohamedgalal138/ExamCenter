@@ -8,9 +8,13 @@ using System.Threading.Tasks;
 
 namespace ExamCenter.Logic.LogIn
 {
-    public class LogInLogic
+    public class LogInLogic 
     {
        readonly Context _context = new();
+        public LogInLogic()
+        {
+            
+        }
 
         public async Task<int> Login( string username , string password)
         {
@@ -20,5 +24,7 @@ namespace ExamCenter.Logic.LogIn
             
 
         }
+
+
     }
 }

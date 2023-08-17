@@ -24,7 +24,7 @@ namespace ExamCenter.Viwe.Student
 
         public async void Submit(Object o, EventArgs e)
         {
-            Loader loader = new Loader(this.Width, this.Height);
+            Loader loader = new (this.Width, this.Height);
             Controls.Add(loader.panel);
             Regex Email = new(@"^[A-Za-z]\w+\@\w+\.\w+");
             Regex FullName = new(@"^[A-Za-z]\w+\s\w+");
@@ -45,14 +45,14 @@ namespace ExamCenter.Viwe.Student
             }
             else
             {
-                SignUpLogic Logic = new SignUpLogic(NameText.Text, EmailText.Text, PassWordText.Text);
+                SignUpLogic Logic = new (NameText.Text, EmailText.Text, PassWordText.Text);
                 bool flag = await Logic.AddNewStudent();
                 Controls.Remove(loader.panel);
                 if (flag != true) MessageBox.Show("This Email is Exsit");
                 else
                 {
                     MessageBox.Show("Sucsessfully");
-                    LogIn logIn = new LogIn();
+                    LogIn logIn = new ();
                     logIn.Show();
                     this.Close();
                 }
